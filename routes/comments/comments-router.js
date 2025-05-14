@@ -8,10 +8,14 @@ router.get('/seed', commentsController.seedComments)
 
 
 router.get('/', commentsController.getComments)
+
+router.delete('/:id', commentsController.deleteComment)
     
 router.post('/', commentsController.createComments)
 
 router.put('/:id', commentsController.updateComments)
+
+router.get('/:id', commentsController.getComment)
 
 export default router;
 
