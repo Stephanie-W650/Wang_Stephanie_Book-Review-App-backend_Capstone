@@ -7,6 +7,7 @@ const commentsSchema = new mongoose.Schema({
     rating: { type: Number, min: 1, max: 5, default: 0}
 },
     {
+    // timestamps can add 'createdAt' and 'updatedAt' for the data
     timestamps: true
 })
 

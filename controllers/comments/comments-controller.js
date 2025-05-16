@@ -1,9 +1,10 @@
 import Comment from '../../models/comments/comments-model.js';
-
+//function to seed the database with some sample comments 
 async function seedComments(req, res) {
   try {
-
+// Deleting all existing comments before seeding new comments
     await Comment.deleteMany({});
+// Creating new comments in the database
     await Comment.create(
       {
         content: "Amazing product! Totally exceeded my expectations.",
@@ -38,7 +39,7 @@ async function seedComments(req, res) {
     res.status(400).json({ error: error.message })
   }
 }
-
+// get all comments 
 async function getComments(req, res) {
   try {
     const comments = await Comment.find({});
@@ -47,7 +48,7 @@ async function getComments(req, res) {
     res.status(400).json({ error: error.message })
   }
 }
-
+//Create comments
 async function createComments(req, res) {
   try {
     const comment = await Comment.create(req.body);
@@ -58,7 +59,7 @@ async function createComments(req, res) {
   }
 }
 
-
+//delete comments
 async function deleteComment(req, res) {
   try {
     const deleteComment = await Comment.findByIdAndDelete(req.params.id);
@@ -70,7 +71,7 @@ async function deleteComment(req, res) {
 }
 
 
-
+// update comments
 async function updateComments(req, res) {
   try {
 
@@ -82,7 +83,7 @@ async function updateComments(req, res) {
     res.status(400).json({ error: error.message })
   }
 }
-
+// get a comment by id
 async function getComment(req, res) {
   try {
     const comment = await Comment.findById(req.params.id);
